@@ -1,0 +1,67 @@
+.menuhero {
+  background: url("../img/menu-banner.jpg") center / cover no-repeat;
+}
+.menus__list {
+  background-color: $black-header;
+  display: grid;
+  grid-template-columns: auto auto;
+  padding: 100px 25px;
+  gap: 50px;
+  @include xs {
+    display: flex;
+    flex-direction: column;
+  }
+  .menus__list-item {
+    position: relative;
+    &:hover {
+      .menus__content {
+        a {
+          h3 {
+            color: $yellow-btn;
+            @include transition($t);
+          }
+        }
+      }
+    }
+    .menus__img {
+      a {
+        img {
+          cursor: pointer;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          @include transition($t);
+        }
+      }
+    }
+    .menus__content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100%;
+      h3 {
+        position: relative;
+        @include text(72px, csbi, auto, $white-cl, initial);
+        margin-bottom: 37px;
+        @include sm {
+          font-size: 60px;
+        }
+      }
+      .square {
+        position: absolute;
+      }
+    }
+  }
+}
+.button {
+  background-color: $black-header;
+  margin-top: -1px;
+  margin-bottom: -1px;
+  padding-bottom: 100px;
+  .menus__button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

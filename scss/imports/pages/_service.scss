@@ -1,0 +1,377 @@
+// hero
+.service__hero {
+  background: url("../img/service-hero.jpg") center / cover no-repeat;
+  height: var(--height-banner);
+  margin-top: var(--height-header);
+  position: relative;
+  .container {
+    height: 100%;
+  }
+  &-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+  }
+}
+//
+.services {
+  background-color: $black-header;
+  &__content {
+    text-align: center;
+    margin-bottom: 93px;
+  }
+  &__list {
+    &-item {
+      position: relative;
+      img {
+        margin: 0 27px;
+      }
+      .serCt {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        @include text(40px, osl, 54px, $white-cl, initial);
+      }
+    }
+  }
+  .flickity-page-dots {
+    height: 2px;
+    position: relative;
+    .dot {
+      border-radius: initial;
+      width: 62px;
+      height: 3px;
+      background-color: $yellow-btn;
+      opacity: 0;
+
+      &.is-selected {
+        opacity: 1;
+      }
+    }
+    &::after {
+      position: absolute;
+      content: "";
+      width: 310px;
+      height: 1px;
+      background-color: $yellow-btn;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, 11px);
+    }
+  }
+}
+
+// benefits
+.benefits {
+  background-color: $black-header;
+  position: relative;
+  .container {
+    display: grid;
+    gap: 25px;
+    @include sm {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+  &__item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 48px;
+    &:nth-child(1) {
+      margin-top: 100px;
+    }
+  }
+  &__content {
+    @include grid(1, 5);
+    padding-left: initial;
+    &-list {
+      p {
+        @include text(16px, mr, 30px, $white-cl, initial);
+      }
+    }
+  }
+  &__img {
+    position: relative;
+    @include grid(7, 12);
+    &-circle {
+      position: absolute;
+      bottom: -8%;
+      right: -16%;
+      @include maxW(1024px) {
+        display: none;
+      }
+    }
+    &-content {
+      width: max-content;
+      @include miditem;
+      text-align: center;
+
+      span {
+        @include text(14px, osr, 20px, $black-btn, uppercase);
+        padding: 20px 55px;
+        background-color: $white-cl;
+        width: max-content;
+        margin: auto;
+        @include transition($t);
+        cursor: pointer;
+        &:hover {
+          color: $white-cl;
+          background-color: $yellow-btn;
+        }
+      }
+      p:nth-child(1) {
+        margin-bottom: 16px;
+      }
+      p:nth-child(2) {
+        margin-bottom: 65px;
+      }
+    }
+  }
+}
+
+// number
+.number {
+  background-color: $black-header;
+  &__list {
+    display: grid;
+    gap: 24px;
+    grid-template-columns: repeat(4, 1fr);
+    @include sm {
+      padding-left: 0;
+    }
+    @include xs {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .number__one {
+      align-items: center;
+      span {
+        font-size: 60px;
+      }
+      p {
+        font-family: mr;
+        font-size: 16px;
+        line-height: 30px;
+        text-transform: initial;
+      }
+    }
+  }
+}
+
+// plan
+.plan {
+  padding-bottom: 0;
+  background-color: $blue-plan;
+
+  &__boss {
+    position: relative;
+    margin-top: 95px;
+    &-word {
+      @include miditem;
+      span {
+        @include text(240px, osl, auto, $black-header, uppercase);
+        letter-spacing: 0.035em;
+        @include xs {
+          font-size: 150px;
+        }
+      }
+    }
+    &-content {
+      text-align: center;
+      @include miditem;
+    }
+  }
+  &__list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    padding-top: 200px;
+    margin-bottom: -300px;
+    @include maxW(1024px) {
+      flex-direction: column;
+    }
+
+    &-item {
+      border: 1px solid $yellow-btn;
+      padding: 0 45px;
+      background-color: $black-header;
+      .plan__top {
+        position: relative;
+        text-align: center;
+        margin-top: 45px;
+        .square {
+          left: 0;
+          width: 100%;
+          &::before {
+            width: 65%;
+          }
+          &::after {
+            width: 62%;
+            transform: translateX(11px);
+          }
+        }
+        span {
+          &:nth-child(1) {
+            @include text(16px, mr, 30px, $white-cl, initial);
+            margin-bottom: 25px;
+          }
+          &:nth-child(2) {
+            @include text(60px, osl, auto, $yellow-btn, uppercase);
+          }
+          &:nth-child(3) {
+            @include text(16px, mr, auto, $yellow-btn, uppercase);
+            margin-top: 20px;
+            margin-bottom: 34px;
+          }
+        }
+      }
+      .plan__bottom {
+        text-align: center;
+        margin-top: 40px;
+        padding-top: 40px;
+        p {
+          @include text(24px, osl, 40px, $white-cl, initial);
+          margin-bottom: 16px;
+        }
+        .plan__bottoms-buttons {
+          margin-left: auto;
+          margin-right: auto;
+          width: max-content;
+          a {
+            margin-top: 40px;
+            padding: 18px 68px;
+          }
+        }
+      }
+      &:nth-child(1) {
+        .plan__bottom {
+          margin-bottom: 40px;
+        }
+      }
+
+      &:nth-child(3) {
+        .plan__bottom {
+          margin-bottom: 40px;
+        }
+      }
+    }
+    &-items {
+      position: relative;
+      border: 1px solid $yellow-btn;
+      padding: 0 45px;
+      background-color: $black-header;
+      background: url("../img/service-plan-tree.svg") center / cover no-repeat;
+      background-position: top left;
+      background-size: auto;
+      background-color: $black-header;
+      .plan__img {
+        position: absolute;
+        top: -9%;
+        right: -7%;
+        @include keyfame;
+        img {
+          width: 100px;
+          @include timeKeyfame;
+        }
+      }
+      .plan__tops {
+        position: relative;
+        text-align: center;
+        margin-top: 45px;
+        .square {
+          left: 0;
+          width: 100%;
+          &::before {
+            width: 65%;
+          }
+          &::after {
+            width: 62%;
+            transform: translateX(11px);
+          }
+        }
+        span {
+          &:nth-child(1) {
+            @include text(16px, mr, 30px, $white-cl, initial);
+            margin-bottom: 25px;
+          }
+          &:nth-child(2) {
+            @include text(60px, osl, auto, $yellow-btn, uppercase);
+          }
+          &:nth-child(3) {
+            @include text(16px, mr, auto, $yellow-btn, uppercase);
+            margin-top: 20px;
+            margin-bottom: 34px;
+          }
+        }
+      }
+      .plan__bottoms {
+        text-align: center;
+        margin-top: 40px;
+        padding-top: 40px;
+        margin-bottom: 40px;
+        p {
+          @include text(24px, osl, 40px, $white-cl, initial);
+          margin-bottom: 16px;
+        }
+        &-buttons {
+          margin-left: auto;
+          margin-right: auto;
+          width: max-content;
+          a {
+            margin-top: 40px;
+            padding: 18px 68px;
+          }
+        }
+      }
+    }
+  }
+}
+
+// chef
+.chef {
+  background-color: $black-header;
+  &__boss {
+    margin-top: 340px;
+    padding: 0 60px;
+    display: flex;
+    @include maxW(1024px) {
+      flex-direction: column;
+    }
+    @include xs {
+      padding: 0 15px;
+    }
+  }
+  &__content {
+    padding: 0 30px;
+    .chef__one {
+      @include text(24px, corl, 40px, $white-cl, initial);
+      margin-top: 35px;
+      margin-bottom: 78px;
+    }
+    .chef__two {
+      @include text(16px, mr, 40px, $white-cl, initial);
+      margin-bottom: 30px;
+    }
+    &-img {
+      img {
+        width: 100%;
+        padding-left: 75px;
+        padding-right: 75px;
+      }
+    }
+  }
+  &__left {
+    width: 100%;
+    img {
+      width: 100%;
+    }
+  }
+  &__right {
+    width: 100%;
+    img {
+      width: 100%;
+    }
+  }
+}

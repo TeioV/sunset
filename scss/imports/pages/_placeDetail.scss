@@ -1,0 +1,16 @@
+.placedetail {
+  background: url("../img/place-detail-banner.jpg") center / cover no-repeat;
+}
+.places__content {
+  p {
+    &:nth-child(2) {
+      margin-bottom: 0;
+    }
+  }
+}
+.places__tab {
+  padding-bottom: 80px;
+}
+.placess__tab {
+  padding-bottom: 70px;
+}
