@@ -1,0 +1,85 @@
+.library__hero {
+  background: url("../img/library-banner.jpg") center / cover no-repeat;
+}
+.library__tab {
+  background-color: $black-header;
+  padding-bottom: 70px;
+
+  &-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+    width: max-content;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    @include transition($t);
+    &::after {
+      position: absolute;
+      content: "";
+      height: 1px;
+      width: 100%;
+      background-color: $yellow-btn;
+      top: 150%;
+    }
+    .title__all {
+      span {
+        @include text(14px, osl, 30px, $gray-tab, uppercase);
+        cursor: pointer;
+        @include transition($t);
+      }
+
+      &.active {
+        span {
+          color: $white-cl;
+          position: relative;
+          &::before {
+            position: absolute;
+            content: "";
+            height: 3px;
+            width: 100%;
+            background-color: $yellow-btn;
+            top: 145%;
+            @include transition($t);
+          }
+        }
+      }
+    }
+  }
+  .library__wrap {
+    margin: 66px;
+    @include transition($t);
+    &-item {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+
+      gap: 24px;
+      display: none;
+      @include transition($t);
+
+      a {
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+      &.active {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        @include sm {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        @include xs {
+          grid-template-columns: repeat(1, 1fr);
+        }
+      }
+    }
+  }
+}
+.library__button {
+  &-item {
+    margin-top: -60px;
+  }
+}

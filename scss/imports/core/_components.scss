@@ -1,0 +1,538 @@
+// css img, button, heading, title, input, elements, components...
+img {
+  max-width: 100%;
+  height: auto;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+  &.--center {
+    margin: 0 auto;
+    display: block;
+  }
+}
+a {
+  text-decoration: none;
+}
+
+// colors (tuỳ chỉnh)
+.--white-cl {
+  color: $white-cl;
+}
+.--black-cl {
+  color: $black-cl;
+}
+// .--blue-cl {
+//   //   color: $blue-cl;
+// }
+
+// css article (nội dung chi tiết bài viết)
+article {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    // font-family: ib; // font bold
+    display: block;
+  }
+  h1 {
+    font-size: var(--h1-fs);
+    line-height: var(--h1-lh);
+    margin: 0 0 0.67rem 0;
+  }
+  h2 {
+    font-size: var(--h2-fs);
+    line-height: var(--h2-lh);
+    margin: 0 0 0.75rem 0;
+  }
+  h3 {
+    font-size: var(--h3-fs);
+    line-height: var(--h3-lh);
+    margin: 0 0 0.83rem 0;
+  }
+  h4 {
+    font-size: var(--h4-fs);
+    line-height: var(--h4-lh);
+    margin: 0 0 1.12rem 0;
+  }
+  h5 {
+    font-size: var(--h5-fs);
+    line-height: var(--h5-lh);
+    margin: 0 0 1.5rem 0;
+  }
+  h6 {
+    font-size: 0.67rem;
+    margin: 0 0 1.67rem 0;
+  }
+
+  p {
+    margin: 0 0 1.12rem 0;
+  }
+  //   strong {
+  //     // font-family: ib; // font bold
+  //   }
+  ol,
+  ul {
+    list-style: initial;
+    padding-left: 18px;
+  }
+  img {
+    display: inline-block;
+    height: auto;
+    overflow: hidden;
+    border-radius: 10px;
+    margin: 25px auto;
+  }
+  .video {
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%;
+    position: relative;
+    margin: 25px auto;
+    iframe,
+    video {
+      position: absolute;
+      @include size(100%);
+      top: 0;
+      left: 0;
+    }
+  }
+  @include xs {
+    img {
+      margin: 20px auto;
+    }
+  }
+}
+.pd {
+  padding-top: var(--pd-section);
+  padding-bottom: var(--pd-section);
+  margin-top: -1px;
+  margin-bottom: -1px;
+}
+.heading {
+  font-family: ib;
+  &.--h1 {
+    font-size: var(--h1-fs);
+    line-height: var(--h1-lh);
+  }
+  &.--h2 {
+    font-size: var(--h2-fs);
+    line-height: var(--h2-lh);
+  }
+  &.--h3 {
+    font-size: var(--h3-fs);
+    line-height: var(--h3-lh);
+    font-family: osl;
+    color: $white-cl;
+  }
+  &.--h4 {
+    font-size: var(--h4-fs);
+    line-height: var(--h4-lh);
+    font-family: osl;
+    color: $white-cl;
+  }
+  &.--h5 {
+    font-size: var(--h5-fs);
+    line-height: var(--h5-lh);
+    font-family: corl;
+    color: $yellow-btn;
+  }
+  &.--h5-white {
+    font-size: var(--h5-fs);
+    line-height: var(--h5-lh);
+    font-family: osl;
+    color: $white-cl;
+  }
+  &.--h1-white {
+    font-size: var(--h1-fs);
+    line-height: var(--h1-lh);
+    font-family: csbi;
+    color: $white-cl;
+  }
+}
+
+.btn-header {
+  a {
+    @include text(14px, osr, 20px, $white-cl, uppercase);
+    padding: 18px 53px;
+    background-color: $yellow-btn;
+    cursor: pointer;
+    @include transition($t);
+    &:hover {
+      color: $black-btn;
+      background-color: $white-cl;
+    }
+  }
+}
+
+.buttonMore {
+  width: max-content;
+  position: relative;
+  border: 1px solid $yellow-btn;
+  padding: 20px 57px;
+  text-decoration: none;
+  @include text(14px, osr, 20px, $white-cl, uppercase);
+  &::after {
+    @include transition($t);
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 198px;
+    height: 56px;
+    background-color: $grey-btn;
+    // z-index: -1;
+  }
+  &:hover::after {
+    background-color: $yellow-btn;
+  }
+  span {
+    z-index: 9;
+    position: relative;
+  }
+}
+
+.textbox {
+  padding-left: 110px;
+  @include sm {
+    padding-left: 15px;
+  }
+  .heading {
+    position: relative;
+    margin-top: 15px;
+    margin-bottom: 20px;
+  }
+  .square {
+    position: absolute;
+    &::after {
+      position: absolute;
+      content: "";
+      display: inline-block;
+      width: 152px;
+      height: 0.5px;
+      background-color: $yellow-btn;
+      top: 3px;
+    }
+    &__second {
+      &::after {
+        position: absolute;
+        content: "";
+        display: inline-block;
+        width: 8px;
+        height: 8px;
+        background-color: #b68c2d;
+        transform: rotate(45deg);
+      }
+    }
+  }
+  .service__mar {
+    margin-top: 60px;
+  }
+  .textbox-title {
+    @include text(24px, corl, 40px, $yellow-btn, initial);
+  }
+  .content__first {
+    @include text(16px, mr, 30px, $white-cl, initial);
+    margin-bottom: 15px;
+  }
+  .content__second {
+    @include text(24px, corl, 40px, $white-cl, initial);
+    margin-bottom: 70px;
+  }
+}
+
+.textbox-second {
+  text-align: center;
+  h3 {
+    position: relative;
+    margin-bottom: 17px;
+  }
+  .square {
+    position: absolute;
+    left: 50%;
+    &::before {
+      position: absolute;
+      content: "";
+      display: inline-block;
+      width: 80px;
+      height: 0.5px;
+      background-color: $yellow-btn;
+      transform: translateX(-102%);
+      top: 3px;
+    }
+    &__second {
+      &::after {
+        position: absolute;
+        content: "";
+        display: inline-block;
+        width: 8px;
+        height: 8px;
+        background-color: #b68c2d;
+        transform: rotate(45deg);
+      }
+    }
+    &::after {
+      position: absolute;
+      content: "";
+      display: inline-block;
+      width: 80px;
+      height: 0.5px;
+      background-color: $yellow-btn;
+      top: 3px;
+      transform: translateX(9px);
+    }
+  }
+}
+
+.miniTextbox {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  .item-boss {
+    .item__img {
+      height: 0px;
+      padding-bottom: 105.7%;
+      position: relative;
+      overflow: hidden;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -webkit-transition: 0.3s;
+        transform: translate(-50%, -50%) scale(1);
+        &:hover {
+          transform: translate(-50%, -50%) scale(1.1);
+        }
+      }
+    }
+  }
+  .item__bottom {
+    background-color: $black-btn;
+    position: relative;
+    &-heading {
+      display: flex;
+      flex-wrap: nowrap;
+      h5 {
+        position: relative;
+        &:nth-child(1) {
+          margin-right: 22px;
+          &::after {
+            position: absolute;
+            content: "";
+            display: inline-block;
+            width: 4px;
+            height: 4px;
+            background-color: #b68c2d;
+            top: 50%;
+            left: 109%;
+            transform: translateY(-50%) rotate(45deg);
+          }
+        }
+      }
+    }
+    &-content {
+      padding-bottom: 18px;
+      a {
+        @include transition($t);
+        @include overtext(2);
+        color: $white-cl;
+        // max-height: 98px;
+        // &::after {
+        //   content: "";
+        //   // position: absolute;
+        //   display: block;
+        //   width: 80px;
+        //   height: 0.5px;
+        //   background-color: $yellow-btn;
+        //   // top: 82%;
+        //   left: 2px;
+        //   @include transition($t);
+        // }
+        &:hover {
+          color: $yellow-btn;
+        }
+      }
+    }
+  }
+}
+
+// contact
+.contact {
+  &__form {
+    display: grid;
+    grid-template-columns: 245px 346px;
+    &-img {
+      width: 245px;
+      background-color: $black-contact;
+      object-fit: cover;
+      height: 100%;
+    }
+    &-info {
+      background-color: $black-btn;
+      padding: 32px;
+      p {
+        @include text(24px, mr, 40px, $yellow-btn, initial);
+        margin-bottom: 32px;
+        text-align: center;
+      }
+      .yourname {
+        @include contact;
+      }
+      .yourphone {
+        @include contact;
+      }
+      .info__select {
+        &-item {
+          @include contact;
+        }
+      }
+      .info__calender {
+        position: relative;
+        // display: flex;
+        // align-items: center;
+        cursor: pointer;
+        input {
+          @include contact;
+        }
+        img {
+          position: absolute;
+          left: 95%;
+          top: 10px;
+
+          padding-bottom: 16px;
+        }
+      }
+      .info__time {
+        select {
+          @include contact;
+          margin-bottom: 30px;
+        }
+      }
+      .info__btn {
+        span {
+          text-align: center;
+          @include text(14px, osr, 20px, $white-cl, uppercase);
+          padding: 20px 115px;
+          background-color: $yellow-btn;
+          cursor: pointer;
+          @include transition($t);
+          &:hover {
+            background-color: $white-cl;
+            color: $black-btn;
+          }
+        }
+      }
+    }
+  }
+}
+
+.number__box {
+  // display: flex;
+  // align-items: center;
+  // justify-content: center;
+  // text-align: center;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+  padding-left: 110px;
+  .number__one {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 45px;
+    span {
+      @include text(90px, osl, 30px, $yellow-btn, uppercase);
+      margin-bottom: 30px;
+    }
+    p {
+      @include text(24px, corl, 40px, $white-cl, uppercase);
+      width: max-content;
+    }
+  }
+  .number__two {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    span {
+      @include text(90px, osl, 30px, $yellow-btn, uppercase);
+      margin-bottom: 30px;
+    }
+    p {
+      @include text(24px, corl, 40px, $white-cl, uppercase);
+    }
+  }
+}
+
+// rotate 45deg
+.hero__content-bottom {
+  display: flex;
+  p {
+    @include text(16px, rr, 30px, $white-cl, initial);
+  }
+  span {
+    position: relative;
+    @include text(16px, rr, 30px, $white-cl, initial);
+    margin: 0 25px;
+    &::before {
+      position: absolute;
+      content: "";
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      background-color: $white-cl;
+      top: 48%;
+      margin: 0 -16px;
+      transform: translateY(-48%) rotate(45deg);
+    }
+    &::after {
+      position: absolute;
+      content: "";
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      background-color: $white-cl;
+      top: 48%;
+      margin: 0 8px;
+      transform: translateY(-48%) rotate(45deg);
+    }
+  }
+}
+
+// kham pha them rotate 45
+.rotateSquare {
+  @include text(14px, osr, 20px, $yellow-btn, uppercase);
+  position: relative;
+  @include transition($t);
+  &:hover {
+    color: $yellow-hover;
+  }
+
+  &::before {
+    position: absolute;
+    content: "";
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background-color: $yellow-btn;
+    top: 48%;
+    transform: translate(-17px, -48%) rotate(45deg);
+  }
+  &::after {
+    position: absolute;
+    content: "";
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background-color: $yellow-btn;
+    top: 48%;
+    transform: translateY(-48%) rotate(45deg);
+    margin-left: 8px;
+  }
+}

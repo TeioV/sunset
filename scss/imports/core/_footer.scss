@@ -1,0 +1,132 @@
+// css footer
+
+.footer {
+  .top {
+    padding-top: 105px;
+    padding-bottom: 95px;
+    background-color: $black-btn;
+    @include sm {
+      padding-top: 40px;
+    }
+  }
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    @include sm {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+  &__contacts {
+    .heading {
+      margin-bottom: 32px;
+    }
+    &-place {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+      p {
+        @include text(16px, mr, 30px, $white-cl, initial);
+      }
+    }
+    &-phone {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+      p {
+        @include text(16px, mr, 30px, $white-cl, initial);
+      }
+    }
+    &-email {
+      display: flex;
+      align-items: center;
+      p {
+        @include text(16px, mr, 30px, $white-cl, initial);
+      }
+    }
+  }
+  &__social {
+    @include sm {
+      margin-top: 40px;
+      margin-bottom: 40px;
+    }
+    &-logo {
+      img {
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 32px;
+        @include sm {
+          margin-left: unset;
+          margin-right: unset;
+        }
+      }
+    }
+    &-content {
+      p {
+        @include text(24px, corl, 40px, $white-cl, initial);
+        text-align: center;
+        margin-bottom: 30px;
+        @include sm {
+          text-align: left;
+        }
+      }
+    }
+    &-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      @include sm {
+        justify-content: flex-start;
+      }
+      a {
+        img {
+          border-radius: 50%;
+          @include transition($t);
+          &:hover {
+            background-color: $yellow-btn;
+          }
+        }
+      }
+    }
+  }
+  &__time {
+    text-align: right;
+    .heading {
+      margin-bottom: 32px;
+      @include sm {
+        text-align: left;
+      }
+    }
+    &-open {
+      .open {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        @include sm {
+          justify-content: unset;
+        }
+        &:not(:last-child) {
+          margin-bottom: 16px;
+        }
+        span {
+          @include text(16px, mr, 30px, $yellow-btn, initial);
+        }
+        p {
+          @include text(16px, mr, 30px, $white-cl, initial);
+          margin-left: 4px;
+        }
+      }
+    }
+  }
+  .bottom {
+    background-color: $black-header;
+    padding: 30px 0;
+    span {
+      text-align: center;
+
+      @include text(16px, mr, 30px, $white-cl, initial);
+    }
+  }
+}

@@ -1,0 +1,163 @@
+// css header
+.header {
+  height: var(--height-header);
+  background-color: $black-header;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 500;
+  width: 100%;
+  .container-fluid {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  &__menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    gap: 25px;
+    li {
+      a {
+        @include text(14px, osr, 20px, $white-cl, uppercase);
+        @include transition($t);
+        padding: 40px 0;
+        &.active {
+          color: $yellow-btn;
+        }
+        &:hover {
+          color: $yellow-btn;
+        }
+      }
+    }
+  }
+
+  &__logo {
+    a {
+      img {
+        z-index: 400;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+    }
+  }
+  &__right {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+
+    &-lang {
+      margin-right: 80px;
+      z-index: 400;
+      @include xs {
+        margin-right: 40px;
+      }
+      &.active {
+        .lang-select {
+          opacity: 1;
+          visibility: visible;
+        }
+      }
+      span {
+        @include text(14px, osr, 20px, $white-cl, uppercase);
+        cursor: pointer;
+        @include transition($t);
+        &:hover {
+          color: $yellow-btn;
+        }
+      }
+      .lang-select {
+        position: absolute;
+        opacity: 0;
+        visibility: hidden;
+        @include transition($t);
+        background-color: $grey-btn;
+        padding: 15px;
+        z-index: 600;
+        li {
+          a {
+            @include transition($t);
+            color: $white-cl;
+            &:hover {
+              color: $yellow-btn;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+@include maxW(1170px) {
+  .header {
+    &__menu {
+      li {
+        a {
+          display: none;
+        }
+      }
+    }
+    &__right {
+      &-button {
+        display: none;
+      }
+    }
+    .hamburger {
+      width: 40px;
+      height: 22px;
+      position: relative;
+      z-index: 400;
+      cursor: pointer;
+      span {
+        width: 100%;
+        height: 2px;
+        position: absolute;
+        background-color: $yellow-btn;
+        top: 44%;
+      }
+      &::before {
+        content: "";
+        width: 100%;
+        height: 2px;
+        display: block;
+        background-color: $yellow-btn;
+      }
+      &:after {
+        content: "";
+        width: 100%;
+        height: 2px;
+        display: block;
+        background-color: $yellow-btn;
+      }
+
+      &:after {
+        position: absolute;
+        bottom: 0;
+        transform: rotate(0deg) translate(0px, 0px);
+        transition: 0.3s;
+      }
+      &::before {
+        transform: rotate(0deg) translate(0px, 0px);
+        transition: 0.3s;
+      }
+      &.active {
+        &::before {
+          transform: rotate(45deg) translate(9px, -4px);
+          transition: 0.3s;
+        }
+        &::after {
+          transform: rotate(-45deg) translate(17px, -5px);
+          transition: 0.3s;
+        }
+        span {
+          opacity: 0;
+        }
+      }
+    }
+  }
+}

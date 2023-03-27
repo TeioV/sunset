@@ -1,0 +1,48 @@
+// css navigator (Menu)
+.nav {
+  width: 100vw;
+  height: 100vh;
+  background: $black-btn;
+  position: fixed;
+  top: 0;
+  left: 0;
+  @include transform(initial);
+  z-index: 300;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.4s;
+
+  ul {
+    flex-direction: column;
+    @include mid();
+    li {
+      margin: 20px auto;
+      a {
+        @include text(30px, osl, 20px, $white-cl, initial);
+        padding: 20px;
+        text-decoration: none;
+        text-align: center;
+        &:hover {
+          color: $yellow-btn;
+        }
+      }
+    }
+  }
+  &.active {
+    opacity: 1;
+    visibility: visible;
+    transition: 0.4s;
+  }
+}
+@include xs {
+  .nav {
+    ul {
+      li {
+        a {
+          @include text(18px, osl, 20px, $white-cl, initial);
+          padding: 10px;
+        }
+      }
+    }
+  }
+}
